@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import Main from "@/omponents/Main"
+import Main from "@/components/Main"
 
 function page() {
   return (
