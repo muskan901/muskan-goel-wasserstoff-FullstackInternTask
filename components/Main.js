@@ -126,7 +126,7 @@ const Main = () => {
         />
         <button
           onClick={() => setIsCelsius(!isCelsius)}
-          className="absolute top-4 right-96 transform -translate-x-14 bg-black bg-opacity-55 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl"
+          className="absolute top-4 left-3/4 transform -translate-x-20 bg-black bg-opacity-55 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl"
         >
           {isCelsius ? "°F" : "°C"}
         </button>
