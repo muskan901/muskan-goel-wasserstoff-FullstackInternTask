@@ -5,6 +5,7 @@ const Main = () => {
   const inputRef = useRef();
   const [weatherData, setWeatherData] = useState(false);
   const [isCelsius, setIsCelsius] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const allIcons = {
     "01d": "/clear.png",
@@ -33,7 +34,7 @@ const Main = () => {
 
   const search = async (city) => {
     if (!city) {
-      alert("Enter city");
+      setErrorMessage("Enter city");
       return;
     }
 
@@ -87,9 +88,10 @@ const Main = () => {
         }),
         lastFiveDays: lastFiveDays,
       });
+      setErrorMessage("");
     } catch (error) {
       console.error("Error fetching the weather data:", error);
-      alert("Invalid city name. Please try again.");
+      setErrorMessage("Invalid city name. Please try again.");
     }
   };
 
@@ -117,6 +119,10 @@ const Main = () => {
           {isCelsius ? "°F" : "°C"}
         </button>
       </div>
+
+      {errorMessage && (
+        <div className="mt-4 text-center text-2xl text-red-800">{errorMessage}</div>
+      )}
 
       <div className="flex justify-center items-center mt-11 ">
         <div className="w-96 h-52 p-4 bg-black bg-opacity-55 rounded-2xl text-white text-center">
